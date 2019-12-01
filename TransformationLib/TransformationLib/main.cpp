@@ -1,8 +1,22 @@
 #include <iostream>
 #include "Vector3.h"
+#include "Vector2.h"
+
+void vector3Tests();
+void vector2Tests();
 
 int main()
 {
+	//vector3Tests();
+	vector2Tests();
+
+	std::cin.get();
+	return 0;
+}
+
+void vector3Tests()
+{
+
 	Vector3 myOriginalVector{};
 	Vector3 myVector{ 2.0, 2.0, 2.0 };
 	Vector3 myNewVector{ myVector };
@@ -46,7 +60,40 @@ int main()
 	normalisedVector = myOriginalVector.normalise();
 
 	std::cout << "Normalised myOriginalVector: " << normalisedVector.toString() << std::endl;
+}
 
-	std::cin.get();
-	return 0;
+void vector2Tests()
+{
+	Vector2 myVector;
+	Vector2 otherVector{ 2,2 };
+
+	myVector = myVector + otherVector;
+
+	std::cout << "Vector addition: " << myVector.toString() << std::endl;
+
+	Vector2 anotherVector{ 1,1 };
+
+	myVector = myVector - anotherVector;
+
+	std::cout << "Vector subtraction: " << myVector.toString() << std::endl;
+
+	float scalar = myVector * otherVector;
+
+	std::cout << "Scalar of myVector: " << std::to_string(scalar) << std::endl;
+
+	myVector = myVector * 2;
+
+	std::cout << "myVector multiplication by Scalar of 2: " << myVector.toString() << std::endl;
+
+	Vector2 normalised;
+	normalised = myVector.normalise();
+
+	std::cout << "myVector normalised " << normalised.toString() << std::endl;
+
+	otherVector = Vector2{ 3,4 };
+	anotherVector = Vector2{ 5,6 };
+
+	float crossProduct = anotherVector ^ otherVector;
+
+	std::cout << "Cross product of anotherVector and otherVector is " << std::to_string(crossProduct) << std::endl;
 }

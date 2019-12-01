@@ -19,7 +19,7 @@ public:
 
 	// To allow other values for X, Y and Z to be declared
 	Vector3(double x1, double y1, double z1) :
-		m_x(x1)
+		  m_x(x1)
 		, m_y(y1)
 		, m_z(z1)
 	{
@@ -81,9 +81,8 @@ public:
 	Vector3 operator+(const Vector3 t_addVector) const;
 	Vector3 operator-(const Vector3 t_subVector) const;
 	void operator-();
-	double operator *(Vector3 m_scalarVector);
+	double operator *(Vector3 m_scalarVector) const;
 	Vector3 operator *(float k) const;
-	Vector3 operator *(int k) const;
 	Vector3 operator ^(Vector3 t_vector) const;
 };
 
