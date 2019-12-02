@@ -115,14 +115,14 @@ Vector3 Matrix3::Row(int i)
 	switch (i)
 	{
 	case 0:
-		answer = Vector3(A11, A12, A13);
+		answer = Vector3(static_cast<float>(A11), static_cast<float>(A12), static_cast<float>(A13));
 		break;
 	case 1:
-		answer = Vector3(A21, A22, A23);
+		answer = Vector3(static_cast<float>(A21), static_cast<float>(A22), static_cast<float>(A23));
 		break;
 	case 2:
 	default:
-		answer = Vector3(A31, A32, A33);
+		answer = Vector3(static_cast<float>(A31), static_cast<float>(A32), static_cast<float>(A33));
 		break;
 	}
 
@@ -135,12 +135,12 @@ Vector3 Matrix3::Column(int i)
 	switch (i)
 	{
 	case 0:
-		return{ A11, A21, A31 };
+		return{ static_cast<float>(A11), static_cast<float>(A21), static_cast<float>(A31) };
 	case 1:
-		return{ A12, A22, A32 };
+		return{ static_cast<float>(A12), static_cast<float>(A22), static_cast<float>(A32) };
 	case 2:
 	default:
-		return{ A13, A23, A33 };
+		return{ static_cast<float>(A13), static_cast<float>(A23), static_cast<float>(A33) };
 	}
 }
 
@@ -298,7 +298,7 @@ Matrix3 Matrix3::Scale3D(int dx)
 
 Vector3 Matrix3::operator*(Vector3 V1)
 {// An overloaded operator * to return the  product of the matrix by a vector
-	return { A11 * V1.getX() + A21 * V1.getY() + A31 * V1.getZ(),
-		A12 * V1.getX() + A22 * V1.getY() + A32 * V1.getZ(),
-		A13 * V1.getX() + A23 * V1.getY() + A33 * V1.getZ() };
+	return { static_cast<float>(A11) * V1.getX() + static_cast<float>(A21) * V1.getY() + static_cast<float>(A31) * V1.getZ(),
+			 static_cast<float>(A12) * V1.getX() + static_cast<float>(A22) * V1.getY() + static_cast<float>(A32) * V1.getZ(),
+			 static_cast<float>(A13) * V1.getX() + static_cast<float>(A23) * V1.getY() + static_cast<float>(A33) * V1.getZ() };
 }

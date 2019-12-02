@@ -1,7 +1,9 @@
 #ifndef MATRIX3_H
 #define MATRIX3_H
-#include "Vector3.h"
 #include <math.h>
+#include "Vector3.h"
+
+class Vector3;
 
 class Matrix3
 	{// The class has nine variables, 3 rows and 3 columns

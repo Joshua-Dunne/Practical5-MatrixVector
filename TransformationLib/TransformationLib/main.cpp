@@ -4,6 +4,15 @@
 #include "Matrix3.h"
 #include "Quaternion.h"
 
+/// <summary>
+/// Joshua Dunne
+/// C00241588
+/// Date(s): 25/11/19, 01/12/19, 02/12/19
+/// Estimated time: 10 hours
+/// Time taken: ~ 5hours
+/// </summary>
+
+
 void vector3Tests();
 void vector2Tests();
 void matrix3Tests();
@@ -34,9 +43,9 @@ void vector3Tests()
 {
 
 	Vector3 myOriginalVector{};
-	Vector3 myVector{ 2.0, 2.0, 2.0 };
+	Vector3 myVector{ 2.0f, 2.0f, 2.0f };
 	Vector3 myNewVector{ myVector };
-	Vector3 productVector{ 4.5, 8.2, 18.6 };
+	Vector3 productVector{ 4.5f, 8.2f, 18.6f };
 
 	std::cout << "myOriginalVector: " << myOriginalVector.toString() << std::endl;
 	std::cout << "myVector" << myVector.toString() << std::endl;
@@ -81,13 +90,13 @@ void vector3Tests()
 void vector2Tests()
 {
 	Vector2 myVector;
-	Vector2 otherVector{ 2,2 };
+	Vector2 otherVector{ 2.0f, 2.0f };
 
 	myVector = myVector + otherVector;
 
 	std::cout << "Vector addition: " << myVector.toString() << std::endl;
 
-	Vector2 anotherVector{ 1,1 };
+	Vector2 anotherVector{ 1.0f, 1.0f };
 
 	myVector = myVector - anotherVector;
 
@@ -106,8 +115,8 @@ void vector2Tests()
 
 	std::cout << "myVector normalised " << normalised.toString() << std::endl;
 
-	otherVector = Vector2{ 3,4 };
-	anotherVector = Vector2{ 5,6 };
+	otherVector = Vector2{ 3.0f, 4.0f };
+	anotherVector = Vector2{ 5.0f, 6.0f };
 
 	float crossProduct = anotherVector ^ otherVector;
 
@@ -122,4 +131,16 @@ void matrix3Tests()
 void quarternionTests()
 {
 	// put different tests of quaternion functions here
+	Quaternion q1{ 2.0, 2.0, 2.0, 2.0 };
+
+	std::cout << "Quaternion original: " << q1.ToString() << std::endl;
+	
+	q1 = q1 + Quaternion{ 1.0, 1.0, 1.0, 1.0 };
+	std::cout << "Quaternion addition (1,1,1,1): " << q1.ToString() << std::endl;
+
+	q1 = q1 - Quaternion{ 1.0, 1.0, 1.0, 1.0 };
+	std::cout << "Quaternion subtraction (1,1,1,1): " << q1.ToString() << std::endl;
+
+	q1 = q1 * Quaternion{ 3.0, 3.0, 3.0, 3.0 };
+	std::cout << "Quaternion multiplication (3,3,3,3): " << q1.ToString() << std::endl;
 }

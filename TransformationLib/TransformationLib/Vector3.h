@@ -6,6 +6,8 @@
 #include <string>
 #include "Matrix3.h"
 
+class Matrix3;
+
 class Vector3
 {
 public:

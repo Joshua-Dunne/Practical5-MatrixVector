@@ -76,7 +76,7 @@ Vector3 Quaternion::Rotate(Vector3 pt, int _angle)
 	Quaternion conjugate = rotate.Conjugate();
 	Quaternion qNode = Quaternion(0, pt.getX(), pt.getY(), pt.getZ());
 	qNode = rotate * qNode * conjugate;
-	return Vector3(qNode.x, qNode.y, qNode.z);
+	return Vector3(static_cast<float>(qNode.x), static_cast<float>(qNode.y), static_cast<float>(qNode.z));
 }
 
 Quaternion Quaternion::operator+(Quaternion q2)
