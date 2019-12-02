@@ -72,7 +72,7 @@ void Vector3::operator -()
 /// </summary>
 /// <param name="m_scalarVector">Vector 1</param>
 /// <returns>scalar product of 2 vectors</returns>
-double Vector3::operator *(Vector3 m_scalarVector) const
+float Vector3::operator *(Vector3 m_scalarVector) const
 {
 	return (m_x * m_scalarVector.getX() + m_y * m_scalarVector.getY() + m_z * m_scalarVector.getZ());
 }
@@ -99,4 +99,11 @@ Vector3 Vector3::operator ^(Vector3 t_vector) const
 			  m_z* t_vector.getX() - m_x * t_vector.getZ(),
 			  m_x * t_vector.getY() - m_y * t_vector.getX() 
 		   };
+}
+
+Vector3 Vector3::operator*(Matrix3 M1)
+{// An overloaded operator * to return the  product of the matrix by a vector
+	return Vector3(M1.Row(0).m_x * m_x + M1.Row(0).m_y * m_y + M1.Row(0).m_z * m_z,
+				   M1.Row(1).m_x * m_x + M1.Row(1).m_y * m_y + M1.Row(0).m_z * m_z,
+				   M1.Row(2).m_x * m_x + M1.Row(2).m_y * m_y + M1.Row(0).m_z * m_z);
 }

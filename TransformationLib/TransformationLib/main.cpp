@@ -1,16 +1,32 @@
 #include <iostream>
 #include "Vector3.h"
 #include "Vector2.h"
+#include "Matrix3.h"
+#include "Quaternion.h"
 
 void vector3Tests();
 void vector2Tests();
+void matrix3Tests();
+void quarternionTests();
 
 int main()
 {
-	//vector3Tests();
-	vector2Tests();
-
+	vector3Tests();
 	std::cin.get();
+	std::cout << std::endl << std::endl;
+
+	vector2Tests();
+	std::cin.get();
+	std::cout << std::endl << std::endl;
+
+	matrix3Tests();
+	std::cin.get();
+	std::cout << std::endl << std::endl;
+
+	quarternionTests();
+	std::cin.get();
+	std::cout << std::endl << std::endl;
+
 	return 0;
 }
 
@@ -96,4 +112,14 @@ void vector2Tests()
 	float crossProduct = anotherVector ^ otherVector;
 
 	std::cout << "Cross product of anotherVector and otherVector is " << std::to_string(crossProduct) << std::endl;
+}
+
+void matrix3Tests()
+{
+	// put different tests of matrix functions here
+}
+
+void quarternionTests()
+{
+	// put different tests of quaternion functions here
 }

@@ -39,15 +39,6 @@ Matrix3::Matrix3(double _A11, double _A12, double _A13, double _A21, double _A22
 	A33 = _A33;
 }
 
-Vector3 Matrix3::operator*(Vector3 V1)
-{
-	{// An overloaded operator * to return the  product of the matrix by a vector
-		return { A11 * V1.getX() + A21 * V1.getY() + A31 * V1.getZ(),
-			A12 * V1.getX() + A22 * V1.getY() + A32 * V1.getZ(),
-			A13 * V1.getX() + A23 * V1.getY() + A33 * V1.getZ() };
-	}
-}
-
 Matrix3 Matrix3::Transpose(Matrix3 M1)
 {// a method to transpose a given matrix
 	return Matrix3(M1.A11, M1.A21, M1.A31,
@@ -303,4 +294,11 @@ Matrix3 Matrix3::Scale3D(int dx)
 	answer.A33 = (double)dx / 100;
 
 	return answer;
+}
+
+Vector3 Matrix3::operator*(Vector3 V1)
+{// An overloaded operator * to return the  product of the matrix by a vector
+	return { A11 * V1.getX() + A21 * V1.getY() + A31 * V1.getZ(),
+		A12 * V1.getX() + A22 * V1.getY() + A32 * V1.getZ(),
+		A13 * V1.getX() + A23 * V1.getY() + A33 * V1.getZ() };
 }

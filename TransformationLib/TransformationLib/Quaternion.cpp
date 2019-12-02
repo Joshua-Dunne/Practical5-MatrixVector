@@ -2,7 +2,10 @@
 
 std::string Quaternion::ToString()
 {
-	return "(" + std::to_string(w) + "," + std::to_string(x) + "i," + std::to_string(y) + "j," + std::to_string(z) + "k)";
+	return "(" + std::to_string(w) + "," 
+			   + std::to_string(x) + "i," 
+			   + std::to_string(y) + "j," 
+			   + std::to_string(z) + "k)";
 }
 
 double Quaternion::Modulus()

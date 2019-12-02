@@ -4,21 +4,22 @@
 #include <iostream>
 #include <math.h>
 #include <string>
+#include "Matrix3.h"
 
 class Vector3
 {
 public:
 	// default constructor
 	Vector3() :
-		m_x(0.0)
-		, m_y(0.0)
-		, m_z(0.0	)
+		  m_x(0.0f)
+		, m_y(0.0f)
+		, m_z(0.0f)
 	{
 
 	}
 
 	// To allow other values for X, Y and Z to be declared
-	Vector3(double x1, double y1, double z1) :
+	Vector3(float x1, float y1, float z1) :
 		  m_x(x1)
 		, m_y(y1)
 		, m_z(z1)
@@ -36,26 +37,26 @@ public:
 
 private:
 	// The class has three variables x, y and z 
-	double m_x;
-	double m_y;
-	double m_z;
+	float m_x;
+	float m_y;
+	float m_z;
 
 public:
 
-	double getX() const { return m_x; };
-	void setX(double t_x) { m_x = t_x; };
+	float getX() const { return m_x; };
+	void setX(float t_x) { m_x = t_x; };
 
-	double getY() const { return m_y; };
-	void setY(double t_y) { m_y = t_y; };
+	float getY() const { return m_y; };
+	void setY(float t_y) { m_y = t_y; };
 
-	double getZ() const { return m_z; };
-	void setZ(double t_z) { m_z = t_z; };
+	float getZ() const { return m_z; };
+	void setZ(float t_z) { m_z = t_z; };
 
 	/// <summary>
 	/// A method to return the length of the vector 
 	/// </summary>
 	/// <returns>Length of vector</returns>
-	inline double length() const
+	inline float length() const
 	{
 		return sqrt(lengthSquared());
 	}
@@ -64,7 +65,7 @@ public:
 	/// A method to return the length squared of the vector
 	/// </summary>
 	/// <returns>Squared length of vector</returns>
-	inline double lengthSquared() const
+	inline float lengthSquared() const
 	{
 		return (m_x * m_x + m_y * m_y + m_z * m_z);
 	}
@@ -81,9 +82,11 @@ public:
 	Vector3 operator+(const Vector3 t_addVector) const;
 	Vector3 operator-(const Vector3 t_subVector) const;
 	void operator-();
-	double operator *(Vector3 m_scalarVector) const;
+	float operator *(Vector3 m_scalarVector) const;
 	Vector3 operator *(float k) const;
 	Vector3 operator ^(Vector3 t_vector) const;
+
+	Vector3 operator *(Matrix3 M1);
 };
 
 #endif
