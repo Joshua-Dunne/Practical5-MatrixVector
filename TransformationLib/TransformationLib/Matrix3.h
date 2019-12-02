@@ -53,10 +53,8 @@ class Matrix3
 
 	Matrix3 Scale(int dx, int dy);
 
-	static Matrix3 operator -(Matrix3 M1)
-	{
-		return M1 * -1.0;
-	}
+	Matrix3 operator -();
+
 	Matrix3 RotationX(int _angle);
 		
 	Matrix3 RotationY(int _angle);

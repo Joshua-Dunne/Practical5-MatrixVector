@@ -231,6 +231,13 @@ Matrix3 Matrix3::Scale(int dx, int dy)
 	return answer;
 }
 
+Matrix3 Matrix3::operator-()
+{
+	return{ A11 * -1, A12 * -1, A13 * -1, 
+			A21 * -1, A22 * -1, A23 * -1, 
+			A31 * -1, A32 * -1, A33 * -1 };
+}
+
 Matrix3 Matrix3::RotationX(int _angle)
 {
 	double radians = 3.14159 / 180 * _angle;
