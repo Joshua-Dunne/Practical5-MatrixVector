@@ -26,7 +26,7 @@ public:
 	}
 
 	// To allow other values for X, Y and Z to be declared
-	Vector3(Vector3& t_v) :
+	Vector3(const Vector3& t_v) :
 		m_x(t_v.m_x)
 		, m_y(t_v.m_y)
 		, m_z(t_v.m_z)
