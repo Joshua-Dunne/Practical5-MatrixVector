@@ -60,5 +60,7 @@ public:
 	friend Quaternion operator *(int s, Quaternion t_quarternion);
 	
 	Quaternion operator *(Quaternion q2);
+
+	double PI{ 3.14159265358979 };
 };
 #endif

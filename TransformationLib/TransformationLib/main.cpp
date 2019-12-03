@@ -7,20 +7,21 @@
 /// <summary>
 /// Joshua Dunne
 /// C00241588
-/// Date(s): 25/11/19, 01/12/19, 02/12/19
+/// Date(s): 25/11/19, 01/12/19, 02/12/19, 03/12/19
 /// Estimated time: 10 hours
 /// Time taken: ~ 5hours
 /// </summary>
 
 
-void vector3Tests();
-void vector2Tests();
-void matrix3Tests();
-void quarternionTests();
+void vector3Tests(); // vector3 function tests
+void vector2Tests(); // vector2 function tests
+void matrix3Tests(); // matrix function tests
+void quarternionTests(); // quaternion function tests
+void classTests(); // tests done in class
 
 int main()
 {
-	vector3Tests();
+	/*vector3Tests();
 	std::cin.get();
 	std::cout << std::endl << std::endl;
 
@@ -30,9 +31,9 @@ int main()
 
 	matrix3Tests();
 	std::cin.get();
-	std::cout << std::endl << std::endl;
+	std::cout << std::endl << std::endl;*/
 
-	quarternionTests();
+	classTests();
 	std::cin.get();
 	std::cout << std::endl << std::endl;
 
@@ -125,12 +126,21 @@ void vector2Tests()
 
 void matrix3Tests()
 {
-	// put different tests of matrix functions here
+	Matrix3 matrix{ 1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0 };
+	Matrix3 matrix2{};
+	matrix2 = matrix + matrix; // addition with itself
+	std::cout << "Matrix{1,2,3,4,5,6,7,8,9} added to itself: " + matrix2.toString() << std::endl;
+	matrix2 = matrix - matrix2;
+	std::cout << "Matrix{1,2,3,4,5,6,7,8,9} minus Matrix2{2,4,6,8,10,12,14,16,18}: " << matrix2.toString() << std::endl;
+	
+	Matrix3 matrix3;
+	matrix3 = matrix * matrix2;
+	std::cout << "Product of Matrix * Matrix 2: " << matrix3.toString() << std::endl;
+
 }
 
 void quarternionTests()
 {
-	// put different tests of quaternion functions here
 	Quaternion q1{ 2.0, 2.0, 2.0, 2.0 };
 
 	std::cout << "Quaternion original: " << q1.ToString() << std::endl;
@@ -143,4 +153,39 @@ void quarternionTests()
 
 	q1 = q1 * Quaternion{ 3.0, 3.0, 3.0, 3.0 };
 	std::cout << "Quaternion multiplication (3,3,3,3): " << q1.ToString() << std::endl;
+
+	Quaternion q2;
+	q2.FromAxisAngle(Vector3{ 1,0,0 }, 45);
+	std::cout << "q2 from Axis Angle Vector3{1,0,0} at 45 degrees: " << q2.ToString() << std::endl;
+
+	Quaternion q3{ 3,4,-9,6 };
+	Vector3 rotated = q3.Rotate(Vector3{ 3,5,-1 }, 90);
+	std::cout << "Rotated Vector{3,5,-1} by 90 degrees: " << rotated.toString() << std::endl;
+
+
+}
+
+void classTests()
+{
+	Vector3 v1{ 0, 2, -5};
+	Vector3 v2{-2, -2, -5};
+	Vector3 v3{2, -2, -5};
+
+	Matrix3 m1{ v1, v2, v3 };
+
+	float angle = 23.21;
+
+	m1 = m1.RotationZ(23.21);
+
+	float quartAngle = 5.0f;
+
+	Vector3 v4 = Quaternion().Rotate(v3, quartAngle);
+	
+
+	std::cout << "v1 length: " << std::to_string(v1.length()) << std::endl;
+	std::cout << "v2 lenght squared: " << std::to_string(v2.lengthSquared()) << std::endl;
+	std::cout << "m1 rotated on Z Axis by 23.21 degrees: " << m1.toString() << std::endl;
+	std::cout << "Vector rotated by quarternion: " << v4.toString() << std::endl;
+
+
 }

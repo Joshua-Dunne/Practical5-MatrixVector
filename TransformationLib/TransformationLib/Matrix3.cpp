@@ -110,7 +110,6 @@ double Matrix3::Determinant(Matrix3 M1)
 // a method to return as Row as vector3 0 == first row, default == last row
 Vector3 Matrix3::Row(int i)
 {
-	
 	Vector3 answer;
 	switch (i)
 	{
@@ -175,7 +174,7 @@ Matrix3 Matrix3::Inverse(Matrix3 M1)
 
 Matrix3 Matrix3::Rotation(int _angle)
 {
-	double radians = 3.14 / 180 * _angle;
+	double radians = PI / 180 * _angle;
 	Matrix3 answer;
 	answer.A11 = cos(radians);
 	answer.A12 = sin(radians);
@@ -231,7 +230,7 @@ Matrix3 Matrix3::operator-()
 
 Matrix3 Matrix3::RotationX(int _angle)
 {
-	double radians = 3.14159 / 180 * _angle;
+	double radians = PI / 180 * _angle;
 	Matrix3 answer;
 	answer.A11 = 1;
 	answer.A12 = 0;
@@ -248,7 +247,7 @@ Matrix3 Matrix3::RotationX(int _angle)
 
 Matrix3 Matrix3::RotationY(int _angle)
 {
-	double radians = 3.14159 / 180 * _angle;
+	double radians = PI / 180 * _angle;
 	Matrix3 answer;
 	answer.A11 = cos(radians);
 	answer.A12 = 0;
@@ -265,7 +264,7 @@ Matrix3 Matrix3::RotationY(int _angle)
 
 Matrix3 Matrix3::RotationZ(int _angle)
 {
-	double radians = 3.14159 / 180 * _angle;
+	double radians = PI / 180 * _angle;
 	Matrix3 answer;
 	answer.A11 = cos(radians);
 	answer.A12 = -sin(radians);
@@ -301,4 +300,9 @@ Vector3 Matrix3::operator*(Vector3 V1)
 	return { static_cast<float>(A11) * V1.getX() + static_cast<float>(A21) * V1.getY() + static_cast<float>(A31) * V1.getZ(),
 			 static_cast<float>(A12) * V1.getX() + static_cast<float>(A22) * V1.getY() + static_cast<float>(A32) * V1.getZ(),
 			 static_cast<float>(A13) * V1.getX() + static_cast<float>(A23) * V1.getY() + static_cast<float>(A33) * V1.getZ() };
+}
+
+std::string Matrix3::toString()
+{
+	return ("\n" + this->Row(0).toString() + "\n" + this->Row(1).toString() + "\n" + this->Row(2).toString());
 }

@@ -64,5 +64,9 @@ class Matrix3
 	Matrix3 Scale3D(int dx);
 
 	Vector3 operator *(Vector3 V1);
+
+	std::string toString();
+
+	double PI{ 3.1415926535897};
 };
 #endif

@@ -70,9 +70,12 @@ Quaternion Quaternion::Copy()
 Vector3 Quaternion::Rotate(Vector3 pt, int _angle)
 {
 	Quaternion axis, rotate;
-	axis = Normalise();
-	double angleRad = 3.14159 / 180 * _angle;
-	rotate = Quaternion(cos(angleRad / 2), sin(angleRad / 2) * axis.x, sin(angleRad / 2) * axis.y, sin(angleRad / 2) * axis.z);
+	axis = this->Normalise();
+	double angleRad = PI / 180 * _angle;
+	rotate = Quaternion(cos(angleRad / 2), 
+						sin(angleRad / 2) * axis.x, 
+						sin(angleRad / 2) * axis.y, 
+						sin(angleRad / 2) * axis.z);
 	Quaternion conjugate = rotate.Conjugate();
 	Quaternion qNode = Quaternion(0, pt.getX(), pt.getY(), pt.getZ());
 	qNode = rotate * qNode * conjugate;
