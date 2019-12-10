@@ -171,21 +171,39 @@ void classTests()
 	Vector3 v2{-2, -2, -5};
 	Vector3 v3{2, -2, -5};
 
-	Matrix3 m1{ v1, v2, v3 };
+	double angle = 23.21;
 
-	float angle = 23.21;
+	Vector3 v4 = Matrix3::RotationZ(angle) * v3;
 
-	m1 = m1.RotationZ(23.21);
+	double quartAngle = 5.0;
 
-	float quartAngle = 5.0f;
+	double radians = quartAngle * (3.14159 / 180);
 
-	Vector3 v4 = Quaternion().Rotate(v3, quartAngle);
-	
+	Quaternion q1;
+	q1.FromAxisAngle(Vector3{ 0,0,1 }, radians);
+
+	Vector3 v5 = q1.Rotate(v3, quartAngle);
 
 	std::cout << "v1 length: " << std::to_string(v1.length()) << std::endl;
 	std::cout << "v2 lenght squared: " << std::to_string(v2.lengthSquared()) << std::endl;
-	std::cout << "m1 rotated on Z Axis by 23.21 degrees: " << m1.toString() << std::endl;
-	std::cout << "Vector rotated by quarternion: " << v4.toString() << std::endl;
+	std::cout << "v4 rotated on Z Axis @ 23.21 degrees: " << v4.toString() << std::endl;
+	std::cout << "v5 rotated by quarternion @ 5 degrees on Z Axis: " << v5.toString() << std::endl;
+	std::cin.get();
 
+	//----------------------------------------------------
+	double angleTwo = 5.0;
 
+	Vector3 v6 = Matrix3::RotationZ(angleTwo) * v3;
+
+	double quartAngleTwo = 23.21;
+
+	double radiansTwo = quartAngleTwo * (3.14159 / 180);
+	
+	Quaternion q2;
+	q2.FromAxisAngle(Vector3{ 0,0,1 }, radiansTwo);
+
+	Vector3 v7 = q2.Rotate(v3, quartAngleTwo);
+	
+	std::cout << "v4 rotated on Z Axis @ 5 degrees: " << v6.toString() << std::endl;
+	std::cout << "v5 rotated by quarternion @ 23.21 degrees: " << v7.toString() << std::endl;
 }

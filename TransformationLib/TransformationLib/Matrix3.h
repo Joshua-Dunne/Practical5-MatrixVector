@@ -55,11 +55,11 @@ class Matrix3
 
 	Matrix3 operator -();
 
-	Matrix3 RotationX(int _angle);
+	static Matrix3 RotationX(int _angle);
 		
-	Matrix3 RotationY(int _angle);
+	static Matrix3 RotationY(int _angle);
 		
-	Matrix3 RotationZ(int _angle);
+	static Matrix3 RotationZ(int _angle);
 
 	Matrix3 Scale3D(int dx);
 

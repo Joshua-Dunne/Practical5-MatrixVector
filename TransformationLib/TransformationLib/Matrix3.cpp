@@ -230,7 +230,7 @@ Matrix3 Matrix3::operator-()
 
 Matrix3 Matrix3::RotationX(int _angle)
 {
-	double radians = PI / 180 * _angle;
+	double radians = 3.14159 / 180 * _angle;
 	Matrix3 answer;
 	answer.A11 = 1;
 	answer.A12 = 0;
@@ -247,7 +247,7 @@ Matrix3 Matrix3::RotationX(int _angle)
 
 Matrix3 Matrix3::RotationY(int _angle)
 {
-	double radians = PI / 180 * _angle;
+	double radians = 3.14159 / 180 * _angle;
 	Matrix3 answer;
 	answer.A11 = cos(radians);
 	answer.A12 = 0;
@@ -264,7 +264,7 @@ Matrix3 Matrix3::RotationY(int _angle)
 
 Matrix3 Matrix3::RotationZ(int _angle)
 {
-	double radians = PI / 180 * _angle;
+	double radians = 3.14159 / 180 * _angle;
 	Matrix3 answer;
 	answer.A11 = cos(radians);
 	answer.A12 = -sin(radians);
